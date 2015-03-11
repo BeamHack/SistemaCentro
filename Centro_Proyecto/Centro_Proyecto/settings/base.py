@@ -16,7 +16,11 @@ THIRD_PARTY_APPS=[
 ]
 
 LOCAL_APPS=[
-    'apps.home','apps.usuario'
+    'apps.home',
+    'apps.usuario',
+    'apps.seguro',
+    'apps.paciente',
+    'apps.medicacion',
 ]
 
 INSTALLED_APPS = DJANGO_APPS+THIRD_PARTY_APPS+LOCAL_APPS
@@ -31,6 +35,11 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+MEDIA_ROOT = '/home/fernando/Escritorio/'
+
+MEDIA_URL = '/media/'
+
 
 ROOT_URLCONF = 'Centro_Proyecto.urls'
 
@@ -50,3 +59,7 @@ USE_TZ = True
 
 TEMPLATE_DIRS=[BASE_DIR.child("templates")]
 
+AUTHENTICATION_BACKENDS=(
+    'apps.usuario.backends.EmailBackend',
+
+)

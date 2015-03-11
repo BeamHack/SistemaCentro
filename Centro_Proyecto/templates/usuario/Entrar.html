@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Proyecto Dailisis</title>
+        <meta charset="UTF-8"/>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../static/css/normalize.css">
+        <link rel="stylesheet" href="../static/css/estilos.css">
+    </head>
+    <body>
+        <header id="Quienes Somos" class="Header">
+            <nav class="MainMenu">
+                <ul class="MainMenu-list">
+                    <li class="MainMenu-item">
+                        <a class="MainMenu-link" href="{% url "home:home" %}">Regresar</a>
+                    </li>
+                    <li class="MainMenu-item">
+                        <a class="MainMenu-link" href="{# url "home:home" #}">Sistema de Centro de Dialisis</a>
+                    </li>
+                    
+                                       
+                </ul>
+            </nav>
+           
+            <p class="Header-name" >Cornelio Samaniego</p>
+        </header>
+        <section id="Quienes Somos" class="Quienes Somos">
+
+            <div class="u-containerDefault">
+                <h2 class="Profile-title u-title">Login</h2>
+                <p class="Profile-description">
+                       <div class="login">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {{form.as_p}}
+                        <input class= "sub" type="submit" value="Ingresar al sistema">
+                    </div>  
+                        
+            </div>
+        </section>
+        
+      
+    </body>
+</html>

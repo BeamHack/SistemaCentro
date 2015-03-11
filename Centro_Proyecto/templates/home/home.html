@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Proyecto Dailisis</title>
+        <meta charset="UTF-8"/>
+       
+        {% load static from staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{%static 'css/normalize.css'%}"> 
+        <link rel="stylesheet" type="text/css" href="{%static 'css/estilos.css'%}"> 
+        <script src="{%static 'js/jquery-2.1.3.min.js'%}"></script>
+        <script src="{%static 'js/animaciones.js'%}"></script>
+        
+    </head>
+    <div class="man">
+    <body>
+        <header id="Quienes Somos" class="Header">
+            <nav class="MainMenu">
+                <ul class="MainMenu-list">
+                    <li class="MainMenu-item">
+                        <a class="MainMenu-link" href="#Quienes Somos">"Quienes Somos"</a>
+                    </li>
+                    <li class="MainMenu-item">
+                        <a class="MainMenu-link" href="#Profesionales">Profesionales</a>
+                    </li>
+                    <li class="MainMenu-item">
+                        <a class="MainMenu-link" href="#contacto">Contactos</a>
+                    </li>
+                    {% if not request.user.is_authenticated %}
+                     <li class="MainMenu-item">
+                        <a class="MainMenu-link" href="{% url "usuario:entrar" %}" >Login</a>
+                    </li>
+                    {% else %}
+                     <li class="MainMenu-item">
+                        <a class="MainMenu-link"  href="{% url "index" %}">Pagina Principal</a>
+                        <p class="user"></a>   Bienvenido {{request.user}}<p> 
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            <figure class="Header-imageContainer">
+                <img src="{%static 'img/centro.jpg'%}" alt="Imagen personal" class="Header-image"/>
+                <figcaption class="Header-imageDescription">
+                    <a class="Header-link" >Centro de Dialisis</a>
+                </figcaption>
+            </figure>
+            <p class="Header-name" >Cornelio Samaniego</p>
+        </header>
+        <section id="Quienes Somos" class="Quienes Somos">
+
+            <div class="u-containerDefault">
+                <h2 class="Profile-title u-title">"Quienes Somos"</h2>
+                <p id="parrafo" class="Profile-description">
+                 La Asociación trabaja en el fortalecimiento técnico, administrativo y humano de sus miembros, con miras a fortalecer la calidad de la atención de salud que proveen, mediante el cumplimiento de estándares óptimos de atención y una capacidad gerencial que centra su interés en la atención del paciente.
+
+                 El centro de Dialisis busca además, contribuir al desarrollo científico del sector salud. Para el efecto está construyendo líneas de cooperación con organizaciones científicas de nivel nacional e internacional. Como parte del Sistema Nacional de salud, contribuye a la construcción de una visión estratégica de la Política Pública en este campo.   
+            </div>
+        </section>
+        <section id="Profesionales" class="Work">
+            <div class="u-containerDefault">
+                <h2 class="Work-title u-title">Profesionales</h2>
+            </div>
+            
+            </article>
+            <article class="Work-item">
+                <figure class="Work-imageContainer">
+                    <img class="Work-image" src="{%static 'img/doc1.jpg'%}" alt="Es la descripcion de mi imagen">
+                    <figcaption class="Work-description">Dr. Jorge Leonardo Cabrera</figcaption>
+                </figure>
+            </article>
+            <article class="Work-item">
+                <figure class="Work-imageContainer">
+                    <img class="Work-image" src="{%static 'img/doc2.jpg'%}" alt="Es la descripcion de mi imagen">
+                    <figcaption class="Work-description">Dr. Jose Luis Castillos</figcaption>
+                </figure>
+            </article>
+            <article class="Work-item">
+                <figure class="Work-imageContainer">
+                    <img class="Work-image" src="{%static 'img/doc3.jpg'%}" alt="Es la descripcion de mi imagen">
+                    <figcaption class="Work-description">Dr. Angel Ludeña Castillo</figcaption>
+                </figure>
+            </article>
+        </section>
+        <footer id="contacto" class="Footer">
+            <div class="Footer-left">
+                <h3 class="Footer-title">Contacto</h3>
+                <p class="Footer-description">Contactanos estamos para Servirte</p>
+            </div>
+            <form class="Footer-form">
+                <input class="Footer-formInput"  type="text" placeholder="Nombre"/>
+                <input class="Footer-formInput" type="email" placeholder="Email"/>
+                <textarea class="Footer-textarea" placeholder="Motivo"></textarea>
+                <button type="submit" class="Footer-button"> Contactar</button>
+            </form>
+
+        </footer>
+        </div>
+       
+    </body>
+
+</html>

@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{%block title%}Listado de pacientes{%endblock%}
+	
+{% block contenido %}
+	<div id="contenidoA">
+		<div class="page-header clearfix"> 
+		<p  id="registrar" class="pull-left text-info" > <span class="glyphicon glyphicon-book"></span> Listado de todos los Pacientes: </p>
+		
+		<div id="tipo_institucion" class="pull-left">			
+				<ul class="nav nav-pills " >
+				  	{%for seg in seguro%}
+						<li><button class="btn btn-primary " id="{{seg.pk}}" href="{#url "seguro" seg.pk#}">{{seg}}</a></li>
+					 {%endfor%}					  
+				</ul>
+		</div>
+						</div>
+						
+						<div id="animacion_pac">
+						{% if paciente %}
+	    				
+	    				<div class="datos">
+						
+
+						{%for pac in paciente%}
+						<div id="citas">
+
+							<table class="table table-bordered">
+								<tr>
+									<td rowspan="7" width="4cm"> 
+										<img id="img_paciente" src="{{pac.foto.url}}" alt="..." class="img-rounded"> <br>
+										
+
+									</td>
+								</tr>
+
+
+								<br >
+								
+								<tr> 
+									<td width="20%"> Nombre: </td>
+									<td width="50%"> {{pac.nombre}} </td>
+
+									<td rowspan="2" width="20%"> 
+										<span> <a  href="{%url "paciente:historia" pac.cedula%}">Ver Historia Clinica Completa</a></span>
+									</td>
+
+									
+								</tr>
+
+								<tr> 
+									<td> Apellido: </td>
+									<td> {{pac.apellido}} </td>
+
+								</tr>
+								<tr>
+									<td> Direccion: </td>
+									<td>{{pac.direccion}} </td>
+									<td rowspan="2" width="20%"> 
+										<span> <a  href="{%url "medicacion:medicacionPacientes" pac.pk%}">Medicamentos</a></span>
+									</td>	
+								</tr>
+
+								<tr>
+									<td> Estado: </td>
+									{%if not pac.activo%}
+										<td>Inactivo</td>
+									{%else%}
+										<td>Activo</td>			
+									{%endif%}
+										
+								</tr>
+
+
+								<tr>
+								</tr>
+							</div>
+
+									{%endfor%}
+								{% else %}
+		    					NO HAY PACIENTES GUARDADOS
+								{% endif %}
+
+							</table>
+
+						</div>
+
+
+						</div>
+
+					</div>
+{% endblock %}

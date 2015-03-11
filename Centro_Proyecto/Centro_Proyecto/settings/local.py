@@ -17,6 +17,7 @@ DATABASES = {
         'PORT':'5432',
     }
 }
+STATIC_ROOT = 'staticfiles'
 
 STATIC_URL = '/static/'
 

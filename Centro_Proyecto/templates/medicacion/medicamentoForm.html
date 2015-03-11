@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block contenido %}
+	<div id="contenidoH">
+	<div class="panel panel-default">
+  		<div class="panel-heading">
+			<p class="text-info" id="registrar">Registrar Nuevo medicamento</p>		
+  		</div>
+	<div class="panel-body">
+		<div class="formularioPac">
+				
+	<form method="post" enctype="multipart/form-data" class="form-group">
+			<div action ="medicamento/medicamento/ " id="form">
+				{%csrf_token%}	
+					
+					{{form.as_p}}					
+				<center><input type="submit" class="btn btn-primary" value="Guardar Datos de medicamentos">	</center>
+					
+			</div>
+		</form>
+		</div>
+		</div>
+		</div>
+</div>
+
+		</center>
+{% endblock %}

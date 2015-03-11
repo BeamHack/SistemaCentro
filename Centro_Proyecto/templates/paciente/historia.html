@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{%block title%}HIstoria clinica{%endblock%}
+	
+{% block contenido %}
+				{% for pac in paciente%}
+					<div id="contenidoH">
+		
+						<td width="10%"><div class="page-header"> 
+						
+								
+							<h2 id="titulo5"> <img id="img_paciente" src="{{pac.foto.url}}" alt="..." class="img-rounded"></span> Paciente: <small> {{pac.nombre}}  </small> </h2>
+						</div>
+									<a  id="pac" class="btn btn-primary">{{pac.pk}}</a>
+								<p class="text-info" id="numh">Numero Clinica del Paciente</p>
+						<center>
+							<table id="datos_personalesH" class="table table-hover table table-bordered">
+								<tr> 
+									<td width="30%"> Nombre: </td>
+									<td> {{pac.nombre}} </td>
+								</tr>
+								<tr> 
+									<td> Apellido: </td>
+									<td> {{pac.apellido}} </td>
+								</tr>
+								<tr>
+									<td> Direccion: </td>
+									<td> {{pac.nombre}} </td>
+								</tr>
+								<tr> 
+									<td> Cedula: </td>
+									<td> {{pac.cedula}} </td>
+								</tr>
+								<tr> 
+									<td> sexo </td>
+									<td> {{pac.sexo}} </td>						
+								</tr>
+								<tr> 								
+									<td> correo </td>
+									<td> {{pac.correo}} </td>
+								</tr>
+
+								<tr> 								
+									<td> Representante legal </td>
+									<td> {{pac.representanteLegal}} </td>
+								</tr>
+								<tr> 								
+									<td> FechaIngreso </td>
+									<td> {{pac.fechaIngreso}} </td>
+								</tr>
+								<tr> 								
+									<td> Edad </td>
+									<td> {{pac.edad}} </td>
+								</tr>
+								<tr> 								
+									<td> Fecha Nacimiento </td>
+									<td> {{pac.Fecha_nacimiento}} </td>
+								</tr>
+								<tr> 								
+									<td> Nacionalidad </td>
+									<td> {{pac.nacionalidad}} </td>
+								</tr>
+								<tr> 								
+									<td> Grado de Instruccion </td>
+									<td> {{pac.grado_de_Instruccion}} </td>
+								</tr>
+								<tr> 								
+									<td> Descripcion clinica </td>
+									<td> {{pac.descripcion_clinica}} </td>
+								</tr>
+								<tr> 								
+									<td> Seguro </td>
+									<td> {{pac.seguro}} </td>
+								</tr>
+								
+										<tr>
+																
+							</tr>
+						
+
+							</table>
+
+						</center>
+				
+
+
+					
+					</div>
+					{% endfor %}
+{% endblock %}

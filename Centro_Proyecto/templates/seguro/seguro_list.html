@@ -1,0 +1,8 @@
+{%extends 'base.html'%}
+{% block contenido%}
+	<h2>Lista de Seguros</h2>
+	{%for seg in Seguro%}	
+		<li>{{seg.nombre}}</li>
+	{%endfor%}
+
+{% endblock %}

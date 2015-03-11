@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial=1, maximum-scale=1">
+    <title>Centro de Dialisis</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    
+
+</head>
+<body>
+    <!--cabecera-->
+    <header>
+        <div class="logo">
+                <img src="../static/img/medicina.jpg">
+        </div>
+        <div class="titulo">
+            <h1 class="t">Centro de Dialisis "Cornelio Samaniego"</h1>
+        
+        </div>
+        <!--
+        <div class="menu1">
+            <a class="home"href="#">Inicio</a>
+            <a href="servicios" class="servicios">Servicios</a>
+            -->
+        <div class="bienvenido" >
+            <h5 class"bienv">Bienvenido {{request.user}}</h5>   
+        </div>
+            
+        </div>
+        <div class="avatar">
+            <figure class="av">
+                <img src="../static/img/doctor.jpg" alt="doc">
+            </figure>
+        
+        </div>
+    </header>
+    <!--navegación-->
+    <nav class="nav2">
+        <ul class="menu2 ">
+            <li ><a href="{% url "index" %}">Inicio</a></li>
+            <li><a class="primary" href="#">Servicios</a></li>
+            <li ><a class="mary" href="#">Seguridad</a></li>
+            
+        </ul>
+    </nav>
+    <!--sección-->
+    <section class="Pacientes">
+    <div class="contorno">
+    <nav>
+        <ul class="menu nav nav-tabs">
+            {%for seg in seguro%}
+            <li><a class="button btn-primary" href="{%url "seguro" seg.pk%}">{{seg}}</a></li>
+            {%endfor%}  
+        </ul>
+    </nav>
+        
+        <article class="pacien">
+            <h3 class="title">Registrar Usuarios</h3>
+             <div class="login">
+                    <form action="/index/" method="post">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                    <input class= "sub" type="submit" value="Registrar">
+                    </form>
+                </div>.
+        </article>
+        
+        </div>
+        <aside class="ayuda">
+            <h2>Panel de Control</h2>
+            <div class="agregar">
+                <a href="{% url "add" %}">Agregar Nuevo Paciente</a>
+            </div>
+            <div class="agregar">
+                <p href="{% url "agregar_usuario" %}">Agregar Nuevo Usuario</p>
+            </div>
+            
+            <div class="citas">
+                contenido de citas
+            </div>
+        </aside>
+    </section>
+    <!--pIE DE pAGINA-->
+    <footer class="final">
+        <h3>
+            <strong>Copyright -2015- </strong>
+            <span class="copy">Loja-Ecuador</span>
+        </h3>
+    </footer>
+    
+</body>
+</html>
