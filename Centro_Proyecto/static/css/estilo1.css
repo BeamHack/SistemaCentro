@@ -14,10 +14,28 @@ header {
 #logo{ 
 visibility:hidden; 
 display: none; 
+
+}
+
+#Errores{
+	background-color: red;
+	color: white;
+	border-style: solid;
+	border-radius: 10px;
+	padding: 1px;
+	padding-top: 10px;
+	width: 654px;
+
 }
  
+#contenidoH{
+	margin-left: 25%;
+	width: 50%;
+}
+
 header .logo {
 	color:#f2f2f2;
+
 	font-size:30px;
 	line-height:70px;
 	float:left;
@@ -25,12 +43,12 @@ header .logo {
 }
 #pacienteF{
 	width: 75%;
-	margin-left: 50px;
-
+	margin-left: 100px;
+	margin-bottom: 3%;
 }
 #medicacionF{
-	width: 50%;
-	margin-left: 50px;
+	width: 70%;
+	margin-left: 70px;
 
 
 
@@ -69,6 +87,12 @@ header nav a:hover {
 	border-radius:50px;
 }
 
+#tit2{
+	font-size: 30px;
+	text-align: center;
+	
+
+}
 
 .header2 {
 	position: fixed;
@@ -100,8 +124,6 @@ header nav a:hover {
 
 }
 #buscador {
-	background: #FFFFFF;
-	border: 3px solid #402f1d;
 	color: #402f1d;
 	height: 30px;
 	line-height: 20px;
@@ -140,13 +162,6 @@ header nav a:hover {
 }
 
 /* CSS3 */
-#buscador { border-radius: 20px; 
-	-moz-border-radius: 20px; 
-	-webkit-border-radius: 20px;
-	background: -webkit-gradient(linear, left top, left bottom, from(#b2a48c), to(#9b8d74));
-	background: -moz-linear-gradient(top, #FFFFFF, #9b8d74);
-	text-shadow: rgba(0,0,0,.2) 0 0 5px;
-}
 
 #buscador-submit { 
 	border-radius: 50px; 
@@ -165,8 +180,17 @@ header nav a:hover {
 	width: 1000px;
 	position: center;
 	background: #FFFFFF;
+	display: none;
+	visibility:hidden;
 }
+#tabPrincipal2{
+	
+	width: 1000px;
+	position: center;
+	background: #FFFFFF;
 
+
+}
 #cuerpo{
 	
 }
@@ -244,6 +268,13 @@ table{
 
 
 }
+#contenedor{
+	margin-left: 25%;
+}
+label{
+	margin-top: 10px;
+	margin-left: 30px;
+}
 
 #menuSeguro{
 	margin-left: 30px;
@@ -269,6 +300,11 @@ table{
 	margin-left: 35px;
 	margin-right: 15px;
 	padding: auto;
+	border-radius: 10%;
+	background-color: black;
+	border-color: black;
+	border:2px; 
+	border-style: solid;
 }
 #img_logo {
 	width: 90%;
@@ -305,7 +341,7 @@ width: 30px;
 }
 #tipo_institucion {
 	margin-top: 70px;
-	margin-left: -610px;
+	margin-left: -380px;
 }
 
 /*estilo Medicamentos*/
@@ -325,11 +361,15 @@ width: 30px;
 	
 }
 #fotoMed img{
-
+	border-radius: 70%;
+	background-color: black;
+	border-color: black;
+	border:2px; 
+	border-style: solid;
 }
 #medicamento{
 	width: 50%;
-	margin-left: 300px;
+	margin-left: 450px;
 	margin-top:50px;
 	
 }
@@ -345,9 +385,7 @@ width: 30px;
 #filaBut{
 	
 }
-#contenidoH{
-	width: 60%;
-}
+
 #pac{
 	float: right;
 	margin-right: 270px;
@@ -360,6 +398,5 @@ width: 30px;
 #registrar{
 	text-align: center;
 	font-size: 30px;
-	margin-right: 300px;
 	margin-bottom: 45px;
 }

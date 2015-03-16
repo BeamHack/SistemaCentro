@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{%block title%}Receta{%endblock%}
+		{% load static from staticfiles %}
+
+{% block contenido %}
+	
+	<div id="imprime">
+		<div id="logo"> 
+        	<img src="{% static 'img/centro.jpg' %}"> 
+   		</div>
+	<center><table id="tabPrincipal" class="table table-striped">
+		<tr id="noM">
+			<td id="titulo"><center>Centro de Diálisis<br>Cornelio Samaniego Valdivieso Cía. Ltda &nbsp&nbsp&nbsp&nbsp</center></td><td id="titulo"><center>Centro de Diálisis<br>Cornelio Samaniego Valdivieso Cía. Ltda</center></td>
+		</tr>
+		<tr>
+			<td>Fecha: {{hora}}<br>Nombre: {{pac.nombre}}</td><td>Fecha: {{hora}}<br>Nombre: {{pac.nombre}}</td>
+		</tr>
+		<tr>
+			<td>Rp.</td><td>Indicaciones:</td>
+		</tr>
+		<tr>
+			<td>
+			<form>
+				<table id="tabla1" class="table table-striped">
+					{% for med in medicamento%}
+					<tr>
+						<td>{{med.nombre}}</td>
+						
+						<td><input  type="text" id="num" class="form-control" placeholder="Cant" value="{{med.cantidad}}" ></td>
+
+						<td id="BdUnidad">{{med.unidad}}</td>
+					</tr>
+					{% endfor %}
+
+				</table>
+
+			</form>
+			</td>
+			<td>
+				<form>
+					<table d="tabla2">
+						<tr>
+							<td>
+								
+								<ul class="list-group">
+								{%for med in medicamento%}
+								  <li class="list-group-item">{{med.nombre}}</li>
+								  <li class="list-group-item"> <textarea rows="1" cols="50" >{{med.informacion_Extra}}</textarea> </li>
+								  {%endfor%}
+								 
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<td id="firma">
+							<center>Dr. Jorge Leonardo Cabrera L.</center>
+							 <center>Nefrólogo</center>
+							 </td>
+						</tr>
+					</table>
+				</form>
+			</td>
+		</tr>
+
+		<tr>
+			<td><nav id="submenu">
+				
+			</nav></td>
+			<td id="h"><nav id="submenu">
+				<center><button type="button" class="btn btn-primary">Guardar</button>&nbsp&nbsp
+				<!--<a  value="Imprimir" class="btn btn-warning" onClick="window.print()">Imprimir</a></center>-->
+				<a  value="Imprimir" class="btn btn-warning" onClick="window.print()">Imprimir</a></center>
+				
+			</nav></td>
+
+		</tr>
+	</table></center>
+</div>
+	
+<script type="text/javascript">
+	function prints(imprime)
+	{
+		
+		var ficha=document.getElementById(imprime);
+		var a=
+		var ventimp=window.open(' ','popimpr');
+		ventimp.document.write(ficha.innerHTML);
+		ventimp.document.close();
+		ventimp.print();
+		ventimp.close();
+		
+	}
+	
+
+</script>
+
+ <style type="text/css">
+ html,body,form
+{
+ margin:0;
+ padding:0;
+}
+ @page{
+   		margin: 2cm;
+ }
+ @media print {
+    #imprime {
+		width: 100px;
+    	
+
+    }
+    #tit1{
+    	text-align: center;
+    	margin-left: 140px;
+    }
+    
+    #h{
+    	display: none;
+    }
+    #firma1{
+    	margin-left: 30px;
+    }
+
+    #tabPrincipal{
+    	font-size: 25px;
+    	float: left;
+		
+    }
+    #tabla2{
+    	float: right;
+    	margin-right: 30px;
+
+    }
+    #tabla1{
+    	float: right;
+    	margin-right: 30px;
+    	margin-top: 30px;
+    	font-size: 30px;
+    }
+    #pacienteF{
+    	color: green;
+    }
+  
+	#footer,#cerrar, #usuario, nav, buscador-form{
+		display: none;
+	}
+
+	#tabPrincipal #titulo {
+		margin-left: -300px;
+		font-size: 40px;
+	}
+	#BdUnidad, #num, li{
+		font-size: 20px;	
+	}
+	#logo{
+		margin-left: 100px;
+		margin-top: -80px;
+		width: 80px;
+		border-radius: 50%;
+		margin-bottom: 70px;
+	}
+	#logo img{
+		border-radius: 50%;
+	}
+	#titulo{
+		text-align: center;
+	}
+	#firma{
+		font-size: 30px;
+	}
+}
+
+</style>
+
+
+{% endblock %}

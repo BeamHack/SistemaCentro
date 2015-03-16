@@ -6,7 +6,7 @@ from django.template.loader import get_template
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import render_to_response
-from forms import PacienteForm
+from forms import PacienteForm, BusquedaForm
 from django.template.context import RequestContext
 
 ###listado de todos los pacientes###
@@ -15,8 +15,23 @@ def listaPacientes(request):
 	usuario=request.user
 	seguro=Seguro.objects.all()
 	paciente=Paciente.objects.order_by("-nombre").filter(activo="True")
+
+	if request.method =='GET':
+		form=BusquedaForm(request.GET)
+		if form.is_valid():
+			#Nombre=Receta(nombre=request.GET['su_nombre']) 
+			#Nombre.save()
+			Busqueda=request.GET['buscar']
+			pacienteBus=Paciente.objects.filter(pk=Busqueda)
+
+			template="paciente/buscar.html"
+			return render_to_response(template,context_instance=RequestContext(request,locals()))
+			#return HttpResponseRedirect('/prueba')
+	else:
+		form=PruebaForm()
+	
 	template="paciente/paciente.html"
-	return render(request,template, locals())
+	return render_to_response(template,context_instance=RequestContext(request,locals()))
 
 
 ###Agregar Pacientes###
@@ -42,8 +57,35 @@ def historia(request, id_paciente):
 	template="paciente/historia.html"
 	return render(request,template, locals())
 
+##Buscar Por paciente##
+@login_required
+def buscarPaciente(request):
+	if request.method =='GET':
+		form=BusquedaForm(request.GET)
+		if form.is_valid():
+			#Nombre=Receta(nombre=request.GET['su_nombre']) 
+			#Nombre.save()
+			Busqueda=request.GET['buscar']
+			paciente=Paciente.objects.filter(nombre=Busqueda)
+
+			template="paciente/buscar.html"
+			return render_to_response(template,context_instance=RequestContext(request,locals()))
+			#return HttpResponseRedirect('/prueba')
+	else:
+		form=PruebaForm()
+	
+	template= 'base.html'
+	return render_to_response(template,context_instance=RequestContext(request,locals()))
+	
+
+
+
+
+
 ##Cerrar cesion##
 @login_required
 def cerrar(request):
     logout(request)
     return HttpResponseRedirect('/')
+
+

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Prueba2</title>
+</head>
+<body>
+	hola {{Nombrew}}
+
+
+	LIsdtado
+	{%if Rec%}
+		{%for R in Rec%}
+			{{R.nombre}}
+		{%endfor%}
+	{% else %}
+		<h1>No Existe Vuelva a Buscar</h1>
+	{%endif%}
+
+</body>
+</html>

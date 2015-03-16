@@ -20,6 +20,10 @@ def MedicacionPacientes(request,id_paciente):
 	return render(request,template,locals())
 
 
+def respuesta(request):
+	template="medicacion/respuesta.html"
+	return render(request, template)
+
 ###Agreagr medicamentos##
 def agregarMedicamento(request,id_paciente):
 	pac=Paciente.objects.get(pk=id_paciente)
@@ -31,7 +35,9 @@ def agregarMedicamento(request,id_paciente):
 			medicamento=form.save(commit=False)
 			medicamento.usuario=request.user
 			medicamento.save()
-			return HttpResponseRedirect("/listaPacientes")
+			template="medicacion/respuesta.html"
+			return render_to_response(template,context_instance=RequestContext(request,locals()))
+			
 	else:
 		form=MedicamentoForm()
 	

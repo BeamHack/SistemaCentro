@@ -25,3 +25,6 @@ class PacienteForm(ModelForm):
 		self.fields['grado_de_Instruccion'].widget.attrs.update({'placeholder' : 'Ingrese el Grado de Instruccion','id':'pacienteF', 'title': "Se necesita un Grado de Instruccion", 'class':"form-control", 'type':'text','required':'True','onkeydown':"return validarLetras(event)"})
 		self.fields['descripcion_clinica'].widget.attrs.update({'placeholder' : 'Ingrese el Descripcion Clinica','id':'pacienteF', 'title': "Se necesita un Descripcion Clinica", 'class':"form-control", 'type':'text','required':'True'})
 		self.fields['sexo'].widget.attrs.update({'class':'pacienteF'})
+
+class BusquedaForm(forms.Form):
+	buscar=forms.CharField(label="Buscar",max_length=100)

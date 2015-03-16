@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 {% block contenido %}
+	
 	<div id="contenidoH">
 		<div class="panel panel-default">
   			<div class="panel-heading">
-				<p class="text-info" id="registrar">Registrar Nuevo medicamento</p>		
+				<p class="text-info" id="registrar">Registrar Nuevo Paciente</p>		
   			</div>
 	
 				<div class="formularioPac">
 				
 					<form method="post" enctype="multipart/form-data" class="form-group">
-						<div action ="paciente/paciente/ " id="form">
+						<div action =" " id="form">
 							{%csrf_token%}	
 					
 							{{form.as_p}}					
@@ -19,8 +20,6 @@
 				</div>
 		</div>
 	</div>
-</div>
-	</center>
 
 
 
