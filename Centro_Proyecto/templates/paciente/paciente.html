@@ -5,10 +5,14 @@
 <nav>
 			<form action="" method="GET" id="buscador-form">
 				{% csrf_token %}
+					
 				{%for field in form%}
 					<div  id="buscador">{{field}}</div>
 					<input type="submit" id="buscador-submit" value="" />
+					
 			  	{%endfor%}
+
+
 			  
 			</form>
 		</nav>
@@ -65,10 +69,10 @@
 
 								</tr>
 								<tr>
-									<td> Direccion: </td>
-									<td>{{pac.direccion}} </td>
+									<td> Historia Clinica: </td>
+									<td>{{pac.Numero_Historia}} </td>
 									<td rowspan="2" width="20%"> 
-										<span> <a  href="{%url "medicacion:medicacionPacientes" pac.pk%}">Medicamentos</a></span>
+										<span> <a  href="{%url "medicacion:medicacionPacientes" pac.Numero_Historia%}">Medicamentos</a></span>
 									</td>	
 								</tr>
 

@@ -14,7 +14,7 @@ from django.template.context import RequestContext
 def listaPacientes(request):
 	usuario=request.user
 	seguro=Seguro.objects.all()
-	paciente=Paciente.objects.order_by("-nombre").filter(activo="True")
+	paciente=Paciente.objects.order_by("-nombre").all()
 
 	if request.method =='GET':
 		form=BusquedaForm(request.GET)
@@ -22,7 +22,7 @@ def listaPacientes(request):
 			#Nombre=Receta(nombre=request.GET['su_nombre']) 
 			#Nombre.save()
 			Busqueda=request.GET['buscar']
-			pacienteBus=Paciente.objects.filter(pk=Busqueda)
+			pacienteBus=Paciente.objects.filter(Numero_Historia=Busqueda)
 
 			template="paciente/buscar.html"
 			return render_to_response(template,context_instance=RequestContext(request,locals()))
@@ -66,7 +66,7 @@ def buscarPaciente(request):
 			#Nombre=Receta(nombre=request.GET['su_nombre']) 
 			#Nombre.save()
 			Busqueda=request.GET['buscar']
-			paciente=Paciente.objects.filter(nombre=Busqueda)
+			paciente=Paciente.objects.filter(Numero_Historia=Busqueda)
 
 			template="paciente/buscar.html"
 			return render_to_response(template,context_instance=RequestContext(request,locals()))

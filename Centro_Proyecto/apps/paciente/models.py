@@ -2,7 +2,8 @@ from django.db import models
 from apps.seguro.models import Seguro
 
 class Paciente(models.Model):
-	Numero_Historia=models.PositiveIntegerField(primary_key=True)
+	Numero_Historia=models.PositiveIntegerField(primary_key=True, unique=True, null=False)
+	activo=models.BooleanField(default=True)
 	Mujer="Mujer"
 	Hombre="Hombre"
 	cedula=models.IntegerField( unique=True)
