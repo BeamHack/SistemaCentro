@@ -366,6 +366,8 @@ width: 30px;
 	border-color: black;
 	border:2px; 
 	border-style: solid;
+	width: 90px;
+	height: 90px;
 }
 #medicamento{
 	width: 50%;

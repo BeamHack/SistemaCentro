@@ -34,6 +34,13 @@ def listaPacientes(request):
 	return render_to_response(template,context_instance=RequestContext(request,locals()))
 
 
+def eliminarPaciente(request, id_paciente):
+	paciente=Paciente.objects.get(Numero_Historia=id_paciente)
+	paciente.delete()
+	return HttpResponseRedirect("/listaPacientes")
+
+
+
 ###Agregar Pacientes###
 @login_required
 def agregarPaciente(request):

@@ -11,7 +11,7 @@ class MedicamentoForm(ModelForm):
 		
 	def __init__(self, *args, **kwargs):
 		super(MedicamentoForm, self).__init__(*args, **kwargs)
-		self.fields['nombre'].widget.attrs.update({'placeholder' : 'Ingrese el nombre','id':'medicacionF', 'title': "Se necesita un nombre(solo numeros)", 'class':"form-control", 'type':'text', 'required':'True','onkeydown':"return validarLetras(event)"})	
+		self.fields['nombre'].widget.attrs.update({'placeholder' : 'Ingrese el nombre','id':'medicacionF', 'title': "Se necesita un nombre(solo numeros)", 'class':"form-control", 'type':'text', 'required':'True'})	
 		self.fields['cantidad'].widget.attrs.update({'placeholder' : 'Ingrese el cantidad','id':'medicacionF', 'title': "Se necesita un cantidad", 'class':"form-control", 'type':'text','required':'True','onkeydown':"return validarNumeros(event)"})
-		self.fields['informacion_Extra'].widget.attrs.update({'placeholder' : 'Ingrese el informacion_Extra','id':'medicacionF', 'title': "Se necesita un informacion_Extra(solo numeros)", 'class':"form-control", 'type':'text', 'required':'False','onkeydown':"return validarLetras(event)"})	
+		self.fields['informacion_Extra'].widget.attrs.update({'placeholder' : 'Ingrese el informacion_Extra','id':'medicacionF', 'title': "Se necesita un informacion_Extra(solo numeros)", 'class':"form-control", 'type':'text', 'required':'False'})	
 		
