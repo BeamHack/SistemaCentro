@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% block title %} Agregar Seguro {% endblock %}
+
+{% block contenido %}
+
+<div id="contenidoH">
+		<div class="panel panel-default">
+  			<div class="panel-heading">
+				<p class="text-info" id="registrar">Registrar una nueva Institucion</p>		
+  			</div>
+	
+				<div class="formularioPac">
+				
+					<form method="POST" enctype="multipart/form-data" class="form-group">
+						<div action ="" id="form">
+							 {%csrf_token%}
+								<label for="Nombre">Nombre Institucion: </label>
+								<div>{{form.nombre}}</div>
+								<label for="descripcion">Descripcion </label>
+								<div>{{form.descripcion}}</div>
+								<label for="email">Correo de la Institucion: </label>
+								<div>{{form.email}}</div>
+								{% for field in form%}
+									{% if field.errors %}
+									<div>{{field.errors}}</div>
+									{% endif%}
+								{% endfor %}
+
+
+
+							
+							<center><input type="submit" class="btn btn-primary" value="Guardar datos">		</center>
+						</div>
+					</form>
+				</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

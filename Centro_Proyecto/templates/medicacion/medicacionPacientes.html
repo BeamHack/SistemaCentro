@@ -1,6 +1,7 @@
 {%extends "base.html"%}
 	{%block title%}Medicamentos{%endblock%}
 	{%block contenido%}
+<div class="contenedor">
 	<div class="medTitulo">
 		<h2 class="text-info">Medicamentos</h2>
 	</div>
@@ -11,6 +12,7 @@
 				<img src="{{pac.foto.url}}" alt="usuario">
 				<h4>paciente:</h4>	
 				<figcaption>{{pac.nombre}}</figcaption>
+				<figcaption>{{pac.apellido}}</figcaption>
 			</figure>
 		</article>
 	</section>
@@ -18,15 +20,19 @@
 		<article id="medicamento">
 				<table class="table table-hover">
 					 <tr>
-						<th>codigo</th>
+						<th>Administrar</th>
 	            		<th>Medicamento</th>
 	            		<th>Cantidad</th>
 	            		<th>Unidad</th>
 	            		<th>Indicaciones</th>
 	            	 </tr>
 	            	 {%for med in medicamento%}
+
 	            	 <tr>
-						<td>{{med.pk}}</td>
+	            	 	<td>
+						<a href="{%url "medicacion:eliminarMedicamento" med.pk%}" class="btn btn-danger">X</a>
+						</td>
+						
 	            		<td>{{med.nombre}}</td>
 	            		<td>{{med.cantidad}}</td>
 	            		<td>{{med.unidad}}</td>
@@ -37,10 +43,10 @@
 				</table>
 		<div class="listButtons">
 			<a href="{% url "medicacion:agregarMedicamento" pac.pk%}" class="btn btn-default">Agregar Medicamentos</a>
-			<a href="{%url "paciente:listaPacientes"%}" class="btn btn-default">Eliminar Medicamentos</a>
 			<a href="{%url "medicacion:recetaPacientes" pac.pk%}" class="btn btn-default">Nueva Receta</a>
 
 		</div>
 		</article>
 	</section>
+</div>	
 {% endblock %}

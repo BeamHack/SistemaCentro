@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Agregar Receta</title>
+</head>
+<body>
+	<form action="/prueba" method="post">
+		{% csrf_token %}
+		<label for="nombre"> SU nombre</label>
+		<input id:'su_nombre' type="text" name="su_nombre" value="{{nombre}}">
+		<input  type= "submit"  value= "OK" > 
+	</form>
+</body>
+</html>

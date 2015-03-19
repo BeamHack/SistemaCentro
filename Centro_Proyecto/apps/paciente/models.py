@@ -2,10 +2,11 @@ from django.db import models
 from apps.seguro.models import Seguro
 
 class Paciente(models.Model):
+	Numero_Historia=models.PositiveIntegerField(max_length=4, primary_key=True, unique=True, null=False)
+	activo=models.BooleanField(default=True)
 	Mujer="Mujer"
 	Hombre="Hombre"
 	cedula=models.IntegerField( unique=True)
-	activo=models.BooleanField(default=True)
 	nombre=models.CharField(max_length=140)
 	apellido=models.CharField(max_length=140)
 	Sexos=((Mujer, "Mujer"), (Hombre, "Hombre"))

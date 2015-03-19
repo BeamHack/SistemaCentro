@@ -19,6 +19,22 @@ def MedicacionPacientes(request,id_paciente):
 	template="medicacion/medicacionPacientes.html"
 	return render(request,template,locals())
 
+## Eliminar medicamento
+def eliminarMedicamento(request, id_medicamento):
+	medicamento=Medicamento.objects.get(pk=id_medicamento)
+	medicamento.delete()
+	template="medicacion/respuesta2.html"
+	return render_to_response(template,context_instance=RequestContext(request,locals()))
+
+
+
+def respuesta(request):
+	template="medicacion/respuesta.html"
+	return render(request, template)
+
+def respuesta2(request):
+	template="medicacion/respuesta.html"
+	return render(request, template)
 
 ###Agreagr medicamentos##
 def agregarMedicamento(request,id_paciente):
@@ -31,7 +47,9 @@ def agregarMedicamento(request,id_paciente):
 			medicamento=form.save(commit=False)
 			medicamento.usuario=request.user
 			medicamento.save()
-			return HttpResponseRedirect("/listaPacientes")
+			template="medicacion/respuesta.html"
+			return render_to_response(template,context_instance=RequestContext(request,locals()))
+			
 	else:
 		form=MedicamentoForm()
 	

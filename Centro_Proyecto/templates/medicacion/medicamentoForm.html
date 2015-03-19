@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block contenido %}
+
+
 	<div id="contenidoH">
 	<div class="panel panel-default">
   		<div class="panel-heading">
@@ -7,12 +9,27 @@
   		</div>
 	<div class="panel-body">
 		<div class="formularioPac">
-				
-	<form method="post" enctype="multipart/form-data" class="form-group">
-			<div action ="medicamento/medicamento/ " id="form">
+	{%for field in form%}
+		{% if field.errors%}
+			<div id="Errores">{{field.errors}}</div>
+		{%endif%}
+	{% endfor %}
+	<form method="POST" enctype="multipart/form-data" class="form-group">
+			<div action ="" id="form">
 				{%csrf_token%}	
-					
-					{{form.as_p}}					
+					<label for="Nombre">Nombre del medicamento: </label>
+								<div >{{form.nombre}}</div>
+								<label for="cantidad">Cantidad </label>
+								<div >{{form.cantidad}}</div>
+								<label for="Informacion">Informacion : </label>
+								<div>{{form.informacion_Extra}}</div>					
+								<label  for="unidad">Unidad: </label>
+								<div id="medicacionF">{{form.unidad}}</div>					
+								<input class="form-control" id="medicacionF" maxlength="140" name="paciente" onkeydown="return validarLetras(event)" placeholder="Ingrese el informacion_Extra" required="False" title="Se necesita un informacion_Extra(solo numeros)" type="hidden" value="{{pac.pk}}">
+								
+				<br>
+								
+
 				<center><input type="submit" class="btn btn-primary" value="Guardar Datos de medicamentos">	</center>
 					
 			</div>
@@ -21,6 +38,4 @@
 		</div>
 		</div>
 </div>
-
-		</center>
 {% endblock %}

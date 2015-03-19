@@ -11,6 +11,8 @@ urlpatterns = patterns('',
     url(r'', include ('apps.usuario.urls',namespace="usuario")),
     url(r'', include('apps.paciente.urls',namespace="paciente")),
     url(r'', include('apps.medicacion.urls',namespace="medicacion")),
+    url(r'', include('apps.receta.urls',namespace="receta")),
+    url(r'', include('apps.seguro.urls', namespace="seguro")),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^media/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT,}),### para servir imagenes
 )

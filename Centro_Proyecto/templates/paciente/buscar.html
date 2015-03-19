@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{%block title%}busqueda{%endblock%}
+	
+{% block contenido %}
+<div class="contenedor">
+	<div id="contenidoA">
+		<div class="page-header clearfix"> 
+			
+			<a id="registrar" href="{%url 'paciente:listaPacientes'%}"> <span class="glyphicon glyphicon-arrow-left"></span> Regresar </p>
+		
+		</div>
+						
+						<div id="animacion_pac">
+						{% if pacienteBus %}
+	    				
+	    				<div class="datos">
+						
+
+						{%for pac in pacienteBus%}
+						<div id="citas">
+
+							<table class="table table-bordered">
+								<tr>
+									<td rowspan="7" width="4cm"> 
+										<img id="img_paciente" src="{{pac.foto.url}}" alt="..." class="img-rounded"> <br>
+										
+
+									</td>
+								</tr>
+
+
+								<br >
+								
+								<tr> 
+									<td width="20%"> Nombre: </td>
+									<td width="50%"> {{pac.nombre}} </td>
+
+									<td rowspan="2" width="20%"> 
+										<span> <a  href="{%url "paciente:historia" pac.cedula%}">Ver Historia Clinica Completa</a></span>
+									</td>
+
+									
+								</tr>
+
+								<tr> 
+									<td> Apellido: </td>
+									<td> {{pac.apellido}} </td>
+
+								</tr>
+								<tr>
+									<td> Direccion: </td>
+									<td>{{pac.direccion}} </td>
+									<td rowspan="2" width="20%"> 
+										<span> <a  href="{%url "medicacion:medicacionPacientes" pac.pk%}">Medicamentos</a></span>
+									</td>	
+								</tr>
+
+								<tr>
+									<td> Estado: </td>
+									{%if not pac.activo%}
+										<td>Inactivo</td>
+									{%else%}
+										<td>Activo</td>			
+									{%endif%}
+										
+								</tr>
+
+
+								<tr>
+								</tr>
+							</div>
+
+									{%endfor%}
+								{% else %}
+		    					NO HAY PACIENTES GUARDADOS
+								{% endif %}
+
+							</table>
+
+						</div>
+
+
+						</div>
+
+					</div>
+					</div>
+{% endblock %}

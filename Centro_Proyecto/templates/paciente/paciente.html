@@ -2,9 +2,25 @@
 {%block title%}Listado de pacientes{%endblock%}
 	
 {% block contenido %}
+<nav>
+			<form action="" method="GET" id="buscador-form">
+				{% csrf_token %}
+					
+				{%for field in form%}
+					<div  id="buscador">{{field}}</div>
+					<input type="submit" id="buscador-submit" value="" />
+					
+			  	{%endfor%}
+
+
+			  
+			</form>
+		</nav>
+
+<div class="contenedor">
 	<div id="contenidoA">
 		<div class="page-header clearfix"> 
-		<p  id="registrar" class="pull-left text-info" > <span class="glyphicon glyphicon-book"></span> Listado de todos los Pacientes: </p>
+		<p  id="registrar" class="pull-left " > <span class="glyphicon glyphicon-book"></span> Listado de todos los Pacientes: </p>
 		
 		<div id="tipo_institucion" class="pull-left">			
 				<ul class="nav nav-pills " >
@@ -43,6 +59,9 @@
 									<td rowspan="2" width="20%"> 
 										<span> <a  href="{%url "paciente:historia" pac.cedula%}">Ver Historia Clinica Completa</a></span>
 									</td>
+										<td rowspan="2" width="20%"> 
+										<span> <a href="{%url "paciente:eliminarPaciente" pac.Numero_Historia %}">Eliminar Paciente</a></span>
+									</td>
 
 									
 								</tr>
@@ -53,10 +72,10 @@
 
 								</tr>
 								<tr>
-									<td> Direccion: </td>
-									<td>{{pac.direccion}} </td>
+									<td> Historia Clinica: </td>
+									<td>{{pac.Numero_Historia}} </td>
 									<td rowspan="2" width="20%"> 
-										<span> <a  href="{%url "medicacion:medicacionPacientes" pac.pk%}">Medicamentos</a></span>
+										<span> <a  href="{%url "medicacion:medicacionPacientes" pac.Numero_Historia%}">Medicamentos</a></span>
 									</td>	
 								</tr>
 
@@ -87,5 +106,6 @@
 
 						</div>
 
+					</div>
 					</div>
 {% endblock %}
