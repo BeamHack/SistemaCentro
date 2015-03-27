@@ -25,17 +25,17 @@
 		<div id="tipo_institucion" class="pull-left">			
 				<ul class="nav nav-pills " >
 				  	{%for seg in seguro%}
-						<li><button class="btn btn-primary " id="{{seg.pk}}" href="{#url "seguro" seg.pk#}">{{seg}}</a></li>
+						<li><button class="btn btn-primary seguroBtn" id="{{seg.pk}}" href="{#url "seguro" seg.pk#}">{{seg}}</a></li>
 					 {%endfor%}					  
 				</ul>
 		</div>
-						</div>
+	</div>
 						
 						<div id="animacion_pac">
 						{% if paciente %}
 	    				
 	    				<div class="datos">
-						
+						</div>
 
 						{%for pac in paciente%}
 						<div id="citas">
