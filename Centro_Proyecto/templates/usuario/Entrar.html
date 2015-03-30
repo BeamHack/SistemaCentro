@@ -1,30 +1,55 @@
 <!DOCTYPE html>
-<html lang="es">
-    <head>
-        <title>Proyecto Dailisis</title>
-        <meta charset="UTF-8"/>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="../static/css/normalize.css">
-        <link rel="stylesheet" href="../static/css/estilos.css">
-    </head>
-    <body>
-        <header id="Quienes Somos" class="Header">
-            <nav class="MainMenu">
-                <ul class="MainMenu-list">
-                    <li class="MainMenu-item">
-                        <a class="MainMenu-link" href="{% url "home:home" %}">Regresar</a>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Centro de Dialisis Cornelio Samaniego</title>
+    {%load static from staticfiles%}
+    <link rel="icon" type="image/x-icon" href="{%static 'img/favicon.ico'%}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'css/normalize.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.css'%}" media="screen">    
+    <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.css.map'%}" media="screen">    
+    <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css'%}" media="screen">    
+    <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap-theme.css'%}" media="screen">  
+    <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap-theme.min.css'%}" media="screen">  
+    <link rel="stylesheet" type="text/css" href="{%static 'css/estilo1.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'css/estilo.css'%}">
+
+    <script type="text/javascript" src="{% static 'js/jquery-2.1.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.slides.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/interactividad.js'%}"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>      
+</head>
+<body>
+    <!--ENCABEZADO CON HEADER-->
+    <header>
+               
+        <!--IMAGEN DE LA IZQUIERDA--> 
+
+        <div class="contenedor">
+            <div class="imagenIzq">
+                <figure>
+                    <img src="{%static 'img/logo1.png' %}" alt="Centro de Dialisis">
+                </figure>
+            </div>
+            
+            <!---MENU-->
+            <nav class="menu">
+                <ul>
+                    <li class="active">
+
+                        <a href="{% url "home:home" %}">Regresar</a>
                     </li>
-                    <li class="MainMenu-item">
+                    
+                    <li> 
                         <a class="MainMenu-link" href="{# url "home:home" #}">Sistema de Centro de Dialisis</a>
                     </li>
                     
-                                       
                 </ul>
             </nav>
-           
-            <p class="Header-name" >Cornelio Samaniego</p>
-        </header>
-        <section id="Quienes Somos" class="Quienes Somos">
+        </div>
+
+    </header>
+       <section id="Quienes Somos" class="Quienes Somos">
 
             <div class="u-containerDefault">
                 <h2 class="Profile-title u-title">Login</h2>
@@ -33,12 +58,26 @@
                         <form action="" method="post">
                             {% csrf_token %}
                             {{form.as_p}}
-                        <input class= "sub" type="submit" value="Ingresar al sistema">
+                        <input class= "sub btn btn-primary" type="submit" value="Ingresar al sistema">
                     </div>  
                         
             </div>
         </section>
-        
-      
-    </body>
+    
+<!--FOOTER-->
+
+    <footer>
+        <div id="titFooter">
+            <h3>
+                <strong>© 2015 Desarrollo Web</strong>
+            </h3>
+        </div>
+        <div class="siguenos">
+            <a href=""><img src="{%static 'img/facebook_logo.png' %}">Facebook</a>
+            <a href=""><img src="{%static 'img/twitter_logo.png' %}">Twitter</a>
+            <a href=""><img src="{%static 'img/instagram_logo.png' %}">Instagram</a>            
+        </div>
+    </footer>
+
+</body>
 </html>

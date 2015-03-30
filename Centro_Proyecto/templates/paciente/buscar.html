@@ -3,13 +3,13 @@
 	
 {% block contenido %}
 <div class="contenedor">
-	<div id="contenidoA">
+	<div id="contenidoB">
 		<div class="page-header clearfix"> 
 			
 			<a id="registrar" href="{%url 'paciente:listaPacientes'%}"> <span class="glyphicon glyphicon-arrow-left"></span> Regresar </p>
 		
 		</div>
-						
+					<a id="registrar" href="{%url 'paciente:listaPacientes'%}"> Resultados de Busqueda</p>	
 						<div id="animacion_pac">
 						{% if pacienteBus %}
 	    				

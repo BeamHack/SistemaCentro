@@ -2,26 +2,15 @@
 {%block title%}Listado de pacientes{%endblock%}
 	
 {% block contenido %}
-<nav>
-			<form action="" method="GET" id="buscador-form">
-				{% csrf_token %}
-					
-				{%for field in form%}
-					<div  id="buscador">{{field}}</div>
-					<input type="submit" id="buscador-submit" value="" />
-					
-			  	{%endfor%}
 
-
-			  
-			</form>
-		</nav>
 
 <div class="contenedor">
-	<div id="contenidoA">
+
+	<div id="contenidoB">
 		<div class="page-header clearfix"> 
-		<p  id="registrar" class="pull-left " > <span class="glyphicon glyphicon-book"></span> Listado de todos los Pacientes: </p>
-		
+		<p  id="registrar"> <span class="glyphicon glyphicon-book"></span> Listado de todos los Pacientes: </p>
+		</div>
+
 		<div id="tipo_institucion" class="pull-left">			
 				<ul class="nav nav-pills " >
 				  	{%for seg in seguro%}
@@ -29,28 +18,33 @@
 					 {%endfor%}					  
 				</ul>
 		</div>
+		<div class="formulario">
+		
+		<form action="" method="GET" id="buscador-form">
+				{% csrf_token %}
+				{%for field in form%}
+					<div id="buscador">{{field}}</div>
+				<input type="submit" id="buscador-submit" value="" />
+			  	{%endfor%}	  
+			</form>
+
 	</div>
 						
-						<div id="animacion_pac">
 						{% if paciente %}
 	    				
-	    				<div class="datos">
-						</div>
-
-						{%for pac in paciente%}
+	    				{%for pac in paciente%}
 						<div id="citas">
+
 
 							<table class="table table-bordered">
 								<tr>
-									<td rowspan="7" width="4cm"> 
+									<td rowspan="5" width="4cm"> 
 										<img id="img_paciente" src="{{pac.foto.url}}" alt="..." class="img-rounded"> <br>
 										
 
 									</td>
 								</tr>
 
-
-								<br >
 								
 								<tr> 
 									<td width="20%"> Nombre: </td>
@@ -92,20 +86,14 @@
 
 								<tr>
 								</tr>
-							</div>
 
 									{%endfor%}
 								{% else %}
 		    					NO HAY PACIENTES GUARDADOS
 								{% endif %}
-
 							</table>
-
 						</div>
+	</div>
+						
 
-
-						</div>
-
-					</div>
-					</div>
 {% endblock %}

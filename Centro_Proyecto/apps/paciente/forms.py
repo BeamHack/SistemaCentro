@@ -35,4 +35,4 @@ class PacienteForm(forms.ModelForm):
 
 
 class BusquedaForm(forms.Form):
-    buscar = forms.CharField(max_length=4,widget=forms.TextInput(attrs={'class':'buscar', 'onkeydown':'return validarNumeros(event)','placeholder' : 'Buscar','title':'Ingresar Historia Clinica'}))
+    buscar = forms.CharField(max_length=4,widget=forms.TextInput(attrs={'class':'buscar', 'onkeydown':'return validarNumeros(event)','placeholder' : 'Buscar','title':'Ingresar Historia Clinica','class':"form-control"}))
