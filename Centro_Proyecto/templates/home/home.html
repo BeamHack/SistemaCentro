@@ -1,100 +1,145 @@
 <!DOCTYPE html>
-<html lang="es">
-    <head>
-        <title>Proyecto Dailisis</title>
-        <meta charset="UTF-8"/>
-       
-        {% load static from staticfiles %}
-        <link rel="stylesheet" type="text/css" href="{%static 'css/normalize.css'%}"> 
-        <link rel="stylesheet" type="text/css" href="{%static 'css/estilos.css'%}"> 
-        <script src="{%static 'js/jquery-2.1.3.min.js'%}"></script>
-        <script src="{%static 'js/animaciones.js'%}"></script>
-        
-    </head>
-    <div class="man">
-    <body>
-        <header id="Quienes Somos" class="Header">
-            <nav class="MainMenu">
-                <ul class="MainMenu-list">
-                    <li class="MainMenu-item">
-                        <a class="MainMenu-link" href="#Quienes Somos">"Quienes Somos"</a>
-                    </li>
-                    <li class="MainMenu-item">
-                        <a class="MainMenu-link" href="#Profesionales">Profesionales</a>
-                    </li>
-                    <li class="MainMenu-item">
-                        <a class="MainMenu-link" href="#contacto">Contactos</a>
-                    </li>
-                    {% if not request.user.is_authenticated %}
-                     <li class="MainMenu-item">
-                        <a class="MainMenu-link" href="{% url "usuario:entrar" %}" >Login</a>
-                    </li>
-                    {% else %}
-                     <li class="MainMenu-item">
-                        <a class="MainMenu-link"  href="{% url "index" %}">Pagina Principal</a>
-                        <p class="user"></a>   Bienvenido {{request.user}}<p> 
-                    </li>
-                    {% endif %}
-                </ul>
-            </nav>
-            <figure class="Header-imageContainer">
-                <img src="{%static 'img/centro.jpg'%}" alt="Imagen personal" class="Header-image"/>
-                <figcaption class="Header-imageDescription">
-                    <a class="Header-link" >Centro de Dialisis</a>
-                </figcaption>
-            </figure>
-            <p class="Header-name" >Cornelio Samaniego</p>
-        </header>
-        <section id="Quienes Somos" class="Quienes Somos">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Centro de Dialisis Cornelio Samaniego</title>
+    {%load static from staticfiles%}
+    <link rel="icon" type="image/x-icon" href="{%static 'img/favicon.ico'%}" />
+    <link rel="stylesheet" type="text/css" href="{%static 'css/normalize.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'css/estilo.css'%}">
+    <script type="text/javascript" src="{% static 'js/jquery-2.1.3.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.slides.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/interactividad.js'%}"></script>
+    <script src="http://maps.googleapis.com/maps/api/js"></script>      
+</head>
+<body>
+    <!--ENCABEZADO CON HEADER-->
+    <header>
+               
+        <!--IMAGEN DE LA IZQUIERDA--> 
 
-            <div class="u-containerDefault">
-                <h2 class="Profile-title u-title">"Quienes Somos"</h2>
-                <p id="parrafo" class="Profile-description">
-                 La Asociación trabaja en el fortalecimiento técnico, administrativo y humano de sus miembros, con miras a fortalecer la calidad de la atención de salud que proveen, mediante el cumplimiento de estándares óptimos de atención y una capacidad gerencial que centra su interés en la atención del paciente.
-
-                 El centro de Dialisis busca además, contribuir al desarrollo científico del sector salud. Para el efecto está construyendo líneas de cooperación con organizaciones científicas de nivel nacional e internacional. Como parte del Sistema Nacional de salud, contribuye a la construcción de una visión estratégica de la Política Pública en este campo.   
-            </div>
-        </section>
-        <section id="Profesionales" class="Work">
-            <div class="u-containerDefault">
-                <h2 class="Work-title u-title">Profesionales</h2>
+        <div class="contenedor">
+            <div class="imagenIzq">
+                <figure>
+                    <img src="{%static 'img/logo1.png' %}" alt="Centro de Dialisis">
+                </figure>
             </div>
             
-            </article>
-            <article class="Work-item">
-                <figure class="Work-imageContainer">
-                    <img class="Work-image" src="{%static 'img/doc1.jpg'%}" alt="Es la descripcion de mi imagen">
-                    <figcaption class="Work-description">Dr. Jorge Leonardo Cabrera</figcaption>
-                </figure>
-            </article>
-            <article class="Work-item">
-                <figure class="Work-imageContainer">
-                    <img class="Work-image" src="{%static 'img/doc2.jpg'%}" alt="Es la descripcion de mi imagen">
-                    <figcaption class="Work-description">Dr. Jose Luis Castillos</figcaption>
-                </figure>
-            </article>
-            <article class="Work-item">
-                <figure class="Work-imageContainer">
-                    <img class="Work-image" src="{%static 'img/doc3.jpg'%}" alt="Es la descripcion de mi imagen">
-                    <figcaption class="Work-description">Dr. Angel Ludeña Castillo</figcaption>
-                </figure>
-            </article>
-        </section>
-        <footer id="contacto" class="Footer">
-            <div class="Footer-left">
-                <h3 class="Footer-title">Contacto</h3>
-                <p class="Footer-description">Contactanos estamos para Servirte</p>
-            </div>
-            <form class="Footer-form">
-                <input class="Footer-formInput"  type="text" placeholder="Nombre"/>
-                <input class="Footer-formInput" type="email" placeholder="Email"/>
-                <textarea class="Footer-textarea" placeholder="Motivo"></textarea>
-                <button type="submit" class="Footer-button"> Contactar</button>
-            </form>
-
-        </footer>
+            <!---MENU-->
+            <nav class="menu">
+                <ul>
+                    <li class="active"><a href="#">Inicio</a></li>
+                    <li><a href="#TituloS">Quienes Somos</a></li>
+                    <li><a href="#tituloG">Direccion</a></li>
+                    <li><a href="#titFooter">Contactenos</a></li>
+                    <li><a href="{% url "usuario:entrar" %}" >Login</a></li>
+                </ul>
+            </nav>
         </div>
-       
-    </body>
 
+    </header>
+    
+    <!--SECCION DE CARROUSEL-->
+    <section class="Carousel">
+        <div class="carrousel">
+            <div class="Slider">   
+                <div class="images">
+                    <img src="{%static 'img/index_slide01.jpg'%}">
+                    <img src="{%static 'img/index_slide02.jpg'%}">
+                    <img src="{%static 'img/index_slide03.jpg'%}">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--SECCION PRINCIPAL-->
+
+    <section class="sectionSistema">
+        <article class="articleSistema">
+            <div class="tituloP">
+                <h1>Sistema Centro de Dialisis</h1>
+            </div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, modi delectus! Odit, praesentium, velit. Suscipit ut eos dolores a laborum cupiditate, eius deleniti reiciendis rem repellat, culpa quaerat error molestias?loremlorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis rerum sed earum sit pariatur, est, inventore omnis repudiandae, deleniti nemo amet vero illo aliquid nostrum numquam voluptas delectus libero dignissimos! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto debitis voluptatum consectetur eos, dicta, non adipisci, aperiam doloribus eum corporis esse ad architecto velit fugiat suscipit consequuntur enim, repellendus facilis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, totam dignissimos esse quaerat vero quis harum, dolorem nam beatae error laudantium quas, placeat reiciendis illo et commodi ab nostrum unde.
+            </p>
+        </article>
+    </section>
+    
+    <!--Seccion secundario-->
+    
+       <div id="TituloS">
+           <h2>QUIENES SOMOS</h2>
+       </div>
+    <section id="Hemo" class="sectionSecundario">
+        <!--Articulo Hemodialisis-->
+        <article  class="Hemo">
+            <div class="tituloizq">
+                <h2>Hemodialisis</h2>
+            </div>
+            <div class="Hemo2">
+                <p>
+                    <img src="{%static 'img/index_img02.png'%}">
+                  lis Lorem ipsum dolor sit Consequuntur est rem quibusdam, necessitatibus corrupti hic facere facilis Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus quam eum eligendi tempora magnam non nam quasi, minus illum totam enim! Consequuntur est rem quibusdam, necessitatibus corrupti hic facere facilis
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, modi delectus! Odit, praesentium, velit. Suscipit ut eos dolores a laborum cupiditate, eius deleniti reiciendis rem repellat, culpa quaerat error molestias?loremlorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis rerum sed earum sit pariatur, est, inventore omnis repudiandae, deleniti nemo amet vero illo aliquid nostrum numquam voluptas delectus libero dignissimos! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto debitis voluptatum consectetur eos, dicta, non adipisci, aperiam doloribus eum corporis esse ad architecto velit fugiat suscipit consequuntur enim, repellendus facilis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, totam dignissimos esse quaerat vero quis harum, dolorem nam beatae error laudantium quas, placeat reiciendis illo et commodi ab nostrum unde.
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, modi delectus! Odit, praesentium, velit. Suscipit ut eos dolores a laborum cupiditate, eius deleniti reiciendis rem repellat, culpa quaerat error molestias?loremlorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis rerum sed earum sit pariatur, est, inventore omnis repudiandae, deleniti nemo amet vero illo aliquid nostrum numquam voluptas delectus libero dignissimos! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto debitis voluptatum consectetur eos, dicta, non adipisci, aperiam doloribus eum corporis esse ad architecto velit fugiat suscipit consequuntur enim, repellendus facilis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, totam dignissimos esse quaerat vero quis harum, dolorem nam beatae error laudantium quas, placeat reiciendis illo et commodi ab nostrum unde.
+                </p>
+            </div>
+        </article>
+    
+        <!--Articulo GoogleMaps-->
+
+        <article class="Convenios">
+            <div id="tituloD" class="tituloD">
+                <h2>Convenios</h2>
+            </div>
+            <div class="Conv">
+                <p>
+                    <img src="{%static 'img/index_img01.png'%}">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus quam eum eligendi tempora magnam non nam quasi, minus illum totam enim! Consequuntur est rem quibusdam, necessitatibus corrupti hic facere facilis.
+                    orem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus quam eum eligendi tempora magnam non nam quasi, minus illum totam enim! Consequuntur est rem quibusdam, necessitatibus corrupti hic facere facilis   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id culpa sequi architecto, nesciunt reprehenderit rem possimus tenetur quae ex, est nobis eligendi vero. Voluptatibus cumque, deserunt sequi est eligendi, consequuntur!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, modi delectus! Odit, praesentium, velit. Suscipit ut eos dolores a laborum cupiditate, eius deleniti reiciendis rem repellat, culpa quaerat error molestias?loremlorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis rerum sed earum sit pariatur, est, inventore omnis repudiandae, deleniti nemo amet vero illo aliquid nostrum numquam voluptas delectus libero dignissimos! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto debitis voluptatum consectetur eos, dicta, non adipisci, aperiam doloribus eum corporis esse ad architecto velit fugiat suscipit consequuntur enim, repellendus facilis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, totam dignissimos esse quaerat vero quis harum, dolorem nam beatae error laudantium quas, placeat reiciendis illo et commodi ab nostrum unde.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, modi delectus! Odit, praesentium, velit. Suscipit ut eos dolores a laborum cupiditate, eius deleniti reiciendis rem repellat, culpa quaerat error molestias?loremlorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis rerum sed earum sit pariatur, est, inventore omnis repudiandae, deleniti nemo amet vero illo aliquid nostrum numquam voluptas delectus libero dignissimos! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto debitis voluptatum consectetur eos, dicta, non adipisci, aperiam doloribus eum corporis esse ad architecto velit fugiat suscipit consequuntur enim, repellendus facilis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, totam dignissimos esse quaerat vero quis harum, dolorem nam beatae error laudantium quas, placeat reiciendis illo et commodi ab nostrum unde.
+                </p>
+            </div>
+        </article>
+    </section>
+    <section class="Maps">
+        <article class="googleMaps">
+            <div id="tituloG" class="tituloG">
+                <h2>Direccion</h2>
+                <p> Av. Cuxibamba y Cañar Teléfono: 256-2549</p>
+            </div>
+            <div id="google" style="width:700px;height:300px;"></div>
+        </article>    
+    </section>
+
+<!--FOOTER-->
+
+    <footer>
+        <div id="titFooter">
+            <h3>
+                <strong>© 2015 Desarrollo Web</strong>
+            </h3>
+        </div>
+        <div class="siguenos">
+            <a href=""><img src="{%static 'img/facebook_logo.png' %}">Facebook</a>
+            <a href=""><img src="{%static 'img/twitter_logo.png' %}">Twitter</a>
+            <a href=""><img src="{%static 'img/instagram_logo.png' %}">Instagram</a>            
+        </div>
+    </footer>
+<script>
+function initialize() {
+  var mapProp = {
+    center:new google.maps.LatLng(-3.9891447772671267,-79.20526340603828),
+    zoom:19,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map=new google.maps.Map(document.getElementById("google"), mapProp);
+
+
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+</body>
 </html>

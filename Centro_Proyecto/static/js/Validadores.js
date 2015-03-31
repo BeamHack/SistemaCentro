@@ -7,8 +7,11 @@
     if (tecla==46) return true; // delete  
     //if (tecla==9) return true; // tab
     if (tecla==37) return true; // izquierda
-   if (e.ctrlKey && tecla==86) { 
-    return true
+    if (tecla==39) return true; // izquierda
+
+
+    if (e.ctrlKey && tecla==86) { 
+        return true
     }; //Ctrl v
     if (e.ctrlKey && tecla==67) { 
     return true
@@ -21,6 +24,24 @@
     patron = /[0-9]/; // patron
  
     te = String.fromCharCode(tecla); 
+    
+    console.log(te);
+    console.log(patron.test(te));
+
+    $.ajax({
+        "url":"",
+        "type":"GET",
+        "data":te,
+        "dataType":"JSON",
+        
+    })
+
+
+
+
+
+
+
     return patron.test(te); // prueba
   }
  

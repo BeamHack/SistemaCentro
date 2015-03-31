@@ -1,0 +1,1 @@
+web:gunicorn Centro_Proyecto.wsgi
