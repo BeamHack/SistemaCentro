@@ -1,0 +1,66 @@
+
+@page {
+	size: A4;
+	margin: 0;
+}
+
+header{
+	visibility: hidden;
+	max-height: 0px;
+	overflow: hidden;
+}
+
+footer {
+	visibility: hidden;
+}
+
+.btn {
+	visibility: hidden;
+	max-height: 0px;
+}
+
+table.recetario {
+}
+
+table.recetario td.encabezado {
+	text-align: center;
+	font-size: 20px;
+}
+
+table.recetario td.paciente {
+	text-align: left;
+	font-size: 16px;
+}
+
+table.recetario span.apartado {
+	text-align: left;
+	font-style: italic;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+table.recetario div.contenido {
+	min-height: 7.5cm;
+	border: 1px black solid;
+	padding-left: 20px;
+}
+
+#recetario-contenedor {
+	margin-top: 40px;
+	max-height: 14cm;
+}
+
+#recetario-footer {
+	visibility: inherit;
+	font-size: 11px;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
