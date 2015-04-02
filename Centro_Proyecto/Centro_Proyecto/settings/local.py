@@ -11,8 +11,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'CentroDialisis',
-        'USER':'fernando',
-        'PASSWORD':'mantenimiento',
+        'USER':'bryan',
+        'PASSWORD':'admin1234',
         'HOST':'localhost',
         'PORT':'5432',
     }
