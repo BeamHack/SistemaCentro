@@ -22,9 +22,6 @@
 #medicacionF{
 	width: 70%;
 	margin-left: 70px;
-
-
-
 }
 
 #cedula{
@@ -61,8 +58,24 @@
 #tit2{
 	font-size: 30px;
 	text-align: center;
-	
+}
 
+/*#recetario-footer {
+	background-color: transparent;
+	padding: 0px;
+	clear: both;
+	height: auto;
+	text-align: center;
+}*/
+
+#recetario-footer {
+	display: none;
+}
+
+#firma {
+	overflow: hidden;
+	clear: both;
+	margin-top: 2cm;
 }
 
 .header2 {

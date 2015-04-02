@@ -69,6 +69,7 @@ table.recetario div.contenido {
 #recetario-footer article {
 	text-align: center;
 	width: 98%;
+	max-height:15mm; 
 	margin-left: 1%;
 }
 
