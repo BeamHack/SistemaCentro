@@ -24,24 +24,35 @@ td.encabezado center {
 
 table.recetario td.paciente {
 	text-align: left;
-	font-size: 16px;
-	padding-bottom: 5mm;
+	font-size: 12px;
+	padding-bottom: 3mm;
 }
 
 table.recetario span.apartado {
 	text-align: left;
 	font-style: italic;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 12px;
 	padding-bottom: 1mm;
 }
 
 table.recetario div.contenido {
-	min-height: 60mm;
+	max-width: 86mm;
+	font-size: 0.6em;
+	min-height: 70mm;
+	max-height: 70mm;
 	margin: 1mm;
-	padding-left: 10px; 
+	padding-left: 10px;
+	padding-right: 10px; 
 	padding-top: 10px;
+	overflow: hidden;
 	border: 1px black solid;
+}
+
+#BdUnidad,#num {
+	padding-left: 5px;
+	width: 1cm;
+	border: 1px blue solid;
 }
 
 #recetario-contenedor {
@@ -59,11 +70,15 @@ table.recetario div.contenido {
 
 #recetario-footer {
 	visibility: inherit;
+	background-color: transparent;
+	padding: 0px;
+	clear: both;
 	width: 70%;
 	max-height: 15mm;
 	overflow: hidden;
 	margin-left: 15%;
 	margin-right: 15%;
+	margin-top: 40px;
 }
 
 #recetario-footer article {
@@ -88,6 +103,8 @@ table.recetario div.contenido {
 textarea{
 	border: none;
 	resize: none;
+	list-style-type: none;
+	overflow: hidden;
 	text-decoration: none;
 	width: 100%;
 }
