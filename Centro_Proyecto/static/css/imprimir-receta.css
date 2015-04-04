@@ -52,7 +52,6 @@ table.recetario div.contenido {
 #BdUnidad,#num {
 	padding-left: 5px;
 	width: 1cm;
-	border: 1px blue solid;
 }
 
 #recetario-contenedor {
@@ -65,7 +64,6 @@ table.recetario div.contenido {
 	padding-top: 0mm;
 	padding-bottom: 0mm;
 	overflow: hidden;
-	border: 1px red solid;
 }
 
 #recetario-footer {
